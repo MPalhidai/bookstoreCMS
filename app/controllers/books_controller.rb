@@ -3,18 +3,18 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    render json: @books
+    render json: @books, status: :ok
   end
 
   def show
-    render json: @book
+    render json: @book, status: :ok
   end
 
   def create
     @book = Book.new(book_params)
 
     if @book.save
-      render json: @book
+      render json: @book, status: :ok
     else
       # @book.errors
     end
@@ -24,7 +24,7 @@ class BooksController < ApplicationController
     @book.edit(book_params)
 
     if @book.save
-      render json: @book
+      render json: @book, status: :ok
     else
       # @book.errors
     end
@@ -41,7 +41,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :author, :complete, :category)
+    params.require(:book).permit(:title, :author, :category, :current_page, :current_chapter, :total_pages)
   end
-
 end
