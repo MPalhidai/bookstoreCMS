@@ -14,9 +14,9 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      render json: @book, status: :ok
+      render json: @book
     else
-      # @book.errors
+      render json: { message: @book.errors }, status: 400
     end
   end
 
@@ -26,7 +26,7 @@ class BooksController < ApplicationController
     if @book.save
       render json: @book, status: :ok
     else
-      # @book.errors
+      render json: { message: @book.errors }, status: 400
     end
   end
 
