@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :author
       t.integer :current_page
-      t.integer :current_chapter
+      t.string :current_chapter
       t.integer :total_pages
       t.string :category
 
