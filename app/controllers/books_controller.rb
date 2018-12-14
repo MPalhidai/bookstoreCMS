@@ -10,6 +10,10 @@ class BooksController < ApplicationController
     render json: @book, status: :ok
   end
 
+  def comments
+    render json: @book.comments, status: :ok
+  end
+
   def create
     @book = Book.new(book_params)
 
