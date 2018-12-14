@@ -25,9 +25,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book.edit(book_params)
-
-    if @book.save
+    if @book.update(book_params)
       render json: @book, status: :ok
     else
       render json: { message: @book.errors }, status: 400
