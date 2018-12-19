@@ -1,27 +1,55 @@
 # README
 
-This Rails app will provide the backend for my bookstore app built with react and redux front end
+MyBooksAPI is a web application to track what books you are reading and what page you are currently on. This is the repository for the back end app, but the front end can be found at [MyBooks](https://github.com/MPalhidai/mybooks). Future features can also be found on the front end app repo.
 
-# In development
+* [MyBooks](https://www.michaelpalhidai.com/mybooks/)
 
-* Add CORS allowable origins in credentials -  https://stackoverflow.com/questions/49985642/rails-5-1-cors-how-to-set-different-origins-for-different-environments
+## Getting Started
 
-Things you may want to cover:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-* Ruby version
+### Prerequisites
 
-* System dependencies
+This project runs on [Ruby](https://www.ruby-lang.org/en/documentation/installation/) and [Rails](http://installrails.com/)
 
-* Configuration
+Current environment:
+```
+rvm -v 1.29.14
+ruby -v 2.5.1p57
+rails -v 5.2.1
+bundler -v 1.16.1
+```
 
-* Database creation
+### Installing
 
-* Database initialization
+In your terminal change directory to where you want to clone this rails application.
 
-* How to run the test suite
+CLI:
+```
+git clone https://github.com/MPalhidai/MyBooksAPI.git
+cd MyBooksAPI
+bundle install
+rails db:setup
+```
+### Running local server:
 
-* Services (job queues, cache servers, search engines, etc.)
+CLI:
+```
+rails server
+```
+Open your browser at "localhost:3000".
 
-* Deployment instructions
+### Running the tests
 
-* ...
+CLI:
+```
+rspec
+```
+
+## Built With
+
+rails new project-name-here --api --database=postgresql
+
+## Authors
+
+* [Michael Palhidai](https://github.com/MPalhidai)
