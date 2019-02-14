@@ -10,28 +10,34 @@ class BooksController < ApplicationController
     render json: @book, status: :ok
   end
 
+  def comments
+    render json: @book.comments, status: :ok
+  end
+
   def create
     @book = Book.new(book_params)
 
     if @book.save
-      render json: @book, status: :ok
+      render json: @book
     else
-      # @book.errors
+      render json: { message: @book.errors }, status: 400
     end
   end
 
   def update
-    @book.edit(book_params)
-
-    if @book.save
+    if @book.update(book_params)
       render json: @book, status: :ok
     else
-      # @book.errors
+      render json: { message: @book.errors }, status: 400
     end
   end
 
   def destroy
-    @book.destroy
+    if @book.destroy
+      render json: { message: "Successfully removed item." }, status: 204
+    else
+      render json: { message: "Unable to remove item" }, status: 400
+    end
   end
 
   private
